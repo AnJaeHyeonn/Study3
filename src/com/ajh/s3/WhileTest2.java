@@ -21,7 +21,7 @@ public class WhileTest2 {
 			System.out.println("1.로그인     2.종료");
 			int first = sc.nextInt();
 
-			while (first == 1) {
+			if (first == 1) {
 				System.out.println("id 입력");
 				int yid = sc.nextInt();
 				System.out.println("pw 입력");
@@ -38,11 +38,16 @@ public class WhileTest2 {
 					if (second == 1) {
 						break;
 					} else {
+						System.out.println("종료합니다.");
 						check = !check;
 						first = 0;
 					}
 
 				}
+			} else {
+
+				System.out.println("종료합니다.");
+				check = !check;
 			}
 
 		}
