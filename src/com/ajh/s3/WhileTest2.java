@@ -10,7 +10,7 @@ public class WhileTest2 {
 		int pw = 5678;
 		int yid = 0;
 		int ypw = 0;
-		int level = 0;
+		int level = 1;
 		int mon = 0;
 		int gold = 0;
 
@@ -52,9 +52,8 @@ public class WhileTest2 {
 				System.out.println("pw 입력");
 				ypw = sc.nextInt();
 				if (id == yid && pw == ypw) {
-					check = !check;
 					System.out.println("로그인성공");
-
+					break;
 				} else {
 					System.out.println("id와 pw를 다시 확인");
 				}
@@ -65,23 +64,26 @@ public class WhileTest2 {
 
 		}
 
-		if (id == yid && pw == ypw) {
+		if (check) {
 			System.out.println("게임을 시작합니다.");
 
 			for (level = 1; level < 15; level++) {
-				for (mon = 1; mon < (level * 3 + 1); mon++) {
-					System.out.println("레벨 : " + level + "        잡은 몬스터 수 : " + mon + "        현재 골드 : " + gold);
-				}
 
-				if ((level + 1) % 5 == 0) {
-					gold = gold + ((level+1) * 200);
-				}
+				if (level % 5 == 0) {
+					gold = gold + (level / 5 * 1000);
+					System.out.println(level / 5 * 1000 + " gold 지급");
 
-				if (level > 0) {
-					System.out.println("축 레벨업! 현재 레벨은 " + (level + 1) + " 이며, 현재 보유 골드는"+gold+"입니다.");
 				}
+				System.out.println("현재레벌 : " + level);
+				for (mon = 0; mon < level * 3; mon++) {
+					System.out.println(mon + 1 + " 마리 사냥 성공");
+				}
+				System.out.println("========== 축 레벨 업 ==========");
 
 			}
+			System.out.println("최종 레벨 : " + level);
+			gold = gold + level / 5 * 1000;
+			System.out.println("최종 골드 : " + gold);
 		}
 
 		System.out.println("WhileTest2 Finish");
