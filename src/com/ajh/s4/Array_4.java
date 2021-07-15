@@ -18,7 +18,7 @@ public class Array_4 {
 
 				ar2[i] = ar1[i];
 			} else {
-				ar2[i] = i + 1;
+				ar2[i] = i + 1; // 임의 값의 조건이 1 커진다고 했을 때의 조건식
 			}
 		}
 
