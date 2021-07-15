@@ -11,10 +11,15 @@ public class Array_4 {
 		// 4 추가
 
 		int[] ar2 = new int[4];
-		ar2[3] = 4;
 
-		for (int i = 0; i < ar1.length; i++) {
-			ar2[i] = ar1[i];
+		for (int i = 0; i < ar2.length; i++) {
+
+			if (i < ar1.length) {
+
+				ar2[i] = ar1[i];
+			} else {
+				ar2[i] = i + 1;
+			}
 		}
 
 		ar1 = ar2;
