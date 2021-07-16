@@ -16,16 +16,12 @@ public class Array_8 {
 		boolean check = true;
 
 		while (check) {
-			for (int i = 0; i < ids.length; i++) {
-				System.out.println(ids[i]);
-				System.out.println(pws[i]);
-			}
 
 			System.out.println("1.로그인     2.회원가입     3.종료");
 			int select = sc.nextInt();
 
 			if (select == 1) {
-
+				boolean loginch = false;
 				System.out.println("아이디를 입력하세요.");
 				int yid = sc.nextInt();
 				System.out.println("비밀번호를 입력하세요.");
@@ -34,37 +30,35 @@ public class Array_8 {
 				for (int i = 0; i < ids.length; i++) {
 					if (yid == ids[i]) {
 						if (ypw == pws[i]) {
-							System.out.println("로그인 성공");
-							break;
+							loginch = true;
 						}
 					}
-				
+				}
+
+				if (loginch == true) {
+					System.out.println("로그인 성공");
+				} else {
+					System.out.println("로그인 실패");
 				}
 
 			} else if (select == 2) {
 
 				boolean flag = false;
-
 				System.out.println("아이디를 입력하세요.");
 				int newid = sc.nextInt();
 				System.out.println("비밀번호를 입력하세요.");
 				int newpw = sc.nextInt();
-
 				int[] nids = new int[ids.length + 1];
 				int[] npws = new int[pws.length + 1];
 
 				for (int i = 0; i < ids.length; i++) {
-
 					if (newid == ids[i]) {
 						System.out.println("중복된 아이디입니다.");
 						flag = false;
 						break;
-
 					} else {
 						flag = true;
-
 					}
-
 				}
 
 				if (flag == true) {
@@ -72,19 +66,19 @@ public class Array_8 {
 						nids[i] = ids[i];
 						npws[i] = pws[i];
 					}
-
 					nids[ids.length] = newid;
 					npws[pws.length] = newpw;
 
 					ids = nids;
 					pws = npws;
 
+					System.out.println("회원가입 성공");
 				}
 
 			} else {
 				check = !check;
-				
 				System.out.println("종료");
+
 			}
 		}
 	}
