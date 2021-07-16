@@ -63,6 +63,8 @@ public class Array_8 {
 						}
 						ids = nnids;
 
+					} else {
+						check = !check;
 					}
 				} else {
 					System.out.println("로그인 실패");
