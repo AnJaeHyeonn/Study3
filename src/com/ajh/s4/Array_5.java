@@ -9,10 +9,10 @@ public class Array_5 {
 
 		Scanner sc = new Scanner(System.in);
 		boolean flag = true;
-		int[] ar = { 45, 52, 76 };
+		int[] ar = { 0,1,2 };
 
 		while (flag) {
-			System.out.println("1.정보출력     2.정보추가     3.정보삭제     4.종료");
+			System.out.println("1.정보출력     2.정보추가     3.정보삭제     4.검색삭제     5.종료");
 			int i = sc.nextInt();
 			switch (i) {
 			case 1:
@@ -51,6 +51,31 @@ public class Array_5 {
 				ar = ar2;
 
 				break;
+			case 4:
+				System.out.println("삭제할 인덱스 번호 입력");
+				int index = sc.nextInt();
+				int[] ar3 = new int[ar.length - 1];
+
+				if (index > ar.length) {
+
+					System.out.println("인덱스를 잘못입력했습니다.");
+				} else {
+
+					for (int n = 0; n < ar.length - 1; n++) {
+						if (index > n) {
+
+							ar3[n] = ar[n];
+						} else if (index <= n) {
+							ar3[n] = ar[n + 1];
+						}
+					}
+					ar = ar3;
+				}
+				if (ar.length == 0) {
+					System.out.println("삭제 할 정보가 없습니다.");
+				}
+				break;
+
 			default:
 				flag = false;
 				break;
