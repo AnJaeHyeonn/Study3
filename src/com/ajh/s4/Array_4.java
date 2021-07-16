@@ -10,17 +10,13 @@ public class Array_4 {
 
 		// 4 추가
 
-		int[] ar2 = new int[4];
+		int[] ar2 = new int[ar1.length + 1];
 
-		for (int i = 0; i < ar2.length; i++) {
-
-			if (i < ar1.length) {
-
-				ar2[i] = ar1[i];
-			} else {
-				ar2[i] = i + 1; // 임의 값의 조건이 1 커진다고 했을 때의 조건식
-			}
+		for (int i = 0; i < ar1.length; i++) {
+			ar2[i] = ar1[i];
 		}
+
+		ar2[ar1.length] = 4;
 
 		ar1 = ar2;
 
