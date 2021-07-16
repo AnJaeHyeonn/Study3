@@ -16,8 +16,12 @@ public class Array_8 {
 		boolean check = true;
 
 		while (check) {
+			for (int k = 0; k < ids.length; k++) {
+				System.out.println(ids[k] + "   " + pws[k]);
+			}
 
 			System.out.println("1.로그인     2.회원가입     3.종료");
+
 			int select = sc.nextInt();
 
 			if (select == 1) {
@@ -28,15 +32,38 @@ public class Array_8 {
 				int ypw = sc.nextInt();
 
 				for (int i = 0; i < ids.length; i++) {
-					if (yid == ids[i]) {
-						if (ypw == pws[i]) {
-							loginch = true;
-						}
+					if (yid == ids[i] && ypw == pws[i]) {
+						loginch = true;
+
 					}
 				}
 
 				if (loginch == true) {
 					System.out.println("로그인 성공");
+					System.out.println("1.로그아웃     2.회원탈퇴     3.종료");
+					int select2 = sc.nextInt();
+					int index = 0;
+					if (select2 == 1) {
+					} else if (select2 == 2) {
+
+						int[] nnids = new int[ids.length - 1];
+
+						for (int i = 0; i < ids.length; i++) {
+							if (yid == ids[i] && ypw == pws[i]) {
+								index = i;
+							}
+						}
+
+						for (int n = 0; n < ids.length - 1; n++) {
+							if (index > n) {
+								nnids[n] = ids[n];
+							} else if (index <= n) {
+								nnids[n] = ids[n + 1];
+							}
+						}
+						ids = nnids;
+
+					}
 				} else {
 					System.out.println("로그인 실패");
 				}
@@ -77,10 +104,11 @@ public class Array_8 {
 
 			} else {
 				check = !check;
-				System.out.println("종료");
 
 			}
+
 		}
+		System.out.println("종료");
 	}
 
 }
