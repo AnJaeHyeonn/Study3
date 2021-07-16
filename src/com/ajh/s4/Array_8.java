@@ -1,0 +1,65 @@
+package com.ajh.s4;
+
+import java.util.Scanner;
+
+public class Array_8 {
+	public static void main(String[] args) {
+
+		int[] ids = { 1324, 4567, 4356, 1258 };
+		int[] pws = { 6789, 5437, 1235, 9874 };
+
+		// 1.로그인 2.회원가입 3.종료
+		// 회원가입 시 아이디 체크
+
+		Scanner sc = new Scanner(System.in);
+
+		boolean check = true;
+
+		while (check) {
+			System.out.println("1.로그인     2.회원가입     3.종료");
+			int select = sc.nextInt();
+
+			if (select == 1) {
+
+				System.out.println("아이디를 입력하세요.");
+				int yid = sc.nextInt();
+				System.out.println("비밀번호를 입력하세요.");
+				int ypw = sc.nextInt();
+
+				for (int i = 0; i < ids.length; i++) {
+					if (yid == ids[i]) {
+						if (ypw == pws[i]) {
+							System.out.println("로그인 성공");
+							break;
+						}
+					}
+				}
+
+			} else if (select == 2) {
+				System.out.println("아이디를 입력하세요.");
+				int newid = sc.nextInt();
+				System.out.println("비밀번호를 입력하세요.");
+				int newpw = sc.nextInt();
+
+				int[] nids = new int[ids.length + 1];
+				int[] npws = new int[pws.length + 1];
+
+				for (int i = 0; i < ids.length; i++) {
+					nids[i] = ids[i];
+					npws[i] = pws[i];
+				}
+
+				nids[ids.length] = newid;
+				npws[pws.length] = newpw;
+
+				ids = nids;
+				pws = npws;
+
+			} else {
+				check = !check;
+				System.out.println("종료");
+			}
+		}
+	}
+
+}
